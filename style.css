@@ -1,0 +1,195 @@
+/* General Styles */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    color: #333;
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+    color: #2c3e50;
+}
+
+/* Header & Hero Section */
+.header-logo {
+    max-width: 150px; /* Ajusta el tamaño según sea necesario */
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://unsplash.com/photos/z96i6JomMdQ/download?force=true&w=2070') no-repeat center center/cover;
+    color: white;
+    text-align: center;
+    padding: 6rem 1rem;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.hero .subtitle {
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+/* Sections */
+section {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    display: inline-block;
+}
+
+section h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: #f39c12; /* Esment Yellow */
+    margin: 0.5rem auto 0;
+}
+
+.light-bg {
+    background-color: #f9f9f9;
+}
+
+/* Metrics Section */
+.metrics {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.metric-item {
+    margin: 1rem;
+}
+
+.metric-item h3 {
+    font-size: 2.5rem;
+    color: #f39c12;
+    margin-bottom: 0.2rem;
+}
+
+/* Solucion Section */
+.solucion-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.solucion-text {
+    max-width: 600px;
+    text-align: left;
+}
+
+.solucion-highlight {
+    background-color: #f39c12;
+    color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    min-width: 250px;
+}
+
+.solucion-highlight span {
+    font-size: 3.5rem;
+    font-weight: 700;
+    display: block;
+}
+
+/* User Profiles Section */
+.user-profiles {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.profile {
+    background: #f9f9f9;
+    padding: 1.5rem;
+    border-left: 5px solid #f39c12;
+    max-width: 400px;
+    text-align: left;
+}
+
+/* Financiacion Section */
+.fin-model {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.fin-item {
+    max-width: 400px;
+}
+
+/* Porque Section */
+#porque ul {
+    list-style: none;
+    padding: 0;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+#porque li {
+    background: white;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 5px;
+}
+
+/* Contact Form */
+#contacto form {
+    max-width: 600px;
+    margin: 2rem auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#contacto input, #contacto textarea {
+    padding: 0.8rem;
+    font-family: 'Montserrat', sans-serif;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#contacto button {
+    padding: 1rem;
+    background-color: #f39c12;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#contacto button:hover {
+    background-color: #e68a00;
+}
+
+/* Footer */
+footer {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+}
