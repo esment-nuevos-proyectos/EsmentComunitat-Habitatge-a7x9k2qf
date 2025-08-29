@@ -1,12 +1,806 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <title>Test GitHub Pages</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Esment Comunitat - Una solución innovadora para la emancipación de las personas con discapacidad</title>
+
+  <!-- 🚫 Evitar indexación en buscadores -->
   <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+  <meta http-equiv="Cache-Control" content="no-store">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+
+
+  <!-- Estilos mínimos SOLO para sliders/FAQ/Simulador (sin tocar style.css) -->
+  <style>
+    /* ============================================================
+       🔧 AJUSTES RÁPIDOS DE BOTONES (SECCIÓN 1 - Reto Vivienda)
+       ============================================================ */
+    #reto .kv-slider{
+      --nav-size: 46px;
+      --nav-offset: 10px;
+      --nav-safe:  8px;
+      --edge-mask: 12px;
+      --mask-color: #fff;
+    }
+    #reto .kv-slider{
+      position:relative;max-width:1100px;margin:0 auto;overflow:hidden;
+      padding-inline: calc(var(--nav-size) + var(--nav-offset) + var(--nav-safe));
+      box-sizing:border-box;
+    }
+    #reto .kv-slider::before, #reto .kv-slider::after{
+      content:"";position:absolute;top:0;bottom:0;
+      width: calc(var(--nav-size) + var(--nav-offset) + var(--edge-mask));z-index:2;pointer-events:none;
+    }
+    #reto .kv-slider::before{left:0;background:linear-gradient(to right,var(--mask-color),rgba(255,255,255,0))}
+    #reto .kv-slider::after{right:0;background:linear-gradient(to left,var(--mask-color),rgba(255,255,255,0))}
+    #reto .kv-track{display:flex;transition:transform 450ms ease;will-change:transform;z-index:1}
+    #reto .kv-slide{box-sizing:border-box;padding:1rem}
+    #reto .kv-card{background:#fff;border-left:6px solid #f39c12;border-radius:10px;box-shadow:0 6px 22px rgba(0,0,0,.06);padding:1.5rem;height:100%}
+    #reto .kv-card h3{margin:0 0 .35rem;font-size:2rem;color:#f39c12;line-height:1.1}
+    #reto .kv-card p{margin:0}
+    #reto .kv-nav{
+      position:absolute;top:50%;transform:translateY(-50%);
+      width:var(--nav-size);height:var(--nav-size);border-radius:999px;border:2px solid #f39c12;
+      background:#fff;color:#f39c12;display:grid;place-items:center;cursor:pointer;
+      box-shadow:0 8px 20px rgba(0,0,0,.08);transition:background .2s,color .2s,transform .2s;user-select:none;z-index:3;
+    }
+    #reto .kv-prev{left:var(--nav-offset)}  #reto .kv-next{right:var(--nav-offset)}
+    #reto .kv-nav:hover{background:#f39c12;color:#fff;transform:translateY(-50%) scale(1.03)}
+    #reto .kv-nav:active{transform:translateY(-50%) scale(.98)}
+    #reto .kv-nav[disabled]{opacity:.45;cursor:not-allowed}
+    #reto .kv-dots{display:flex;gap:.4rem;justify-content:center;margin-top:1rem}
+    #reto .kv-dot{width:9px;height:9px;border-radius:999px;background:#e1e1e1;border:1px solid transparent;cursor:pointer;transition:transform .15s}
+    #reto .kv-dot[aria-current="true"]{background:#f39c12;border-color:#f39c12;transform:scale(1.15)}
+
+    /* ============================================================
+       🔧 AJUSTES PARA SECCIÓN 2 (Reto Atención) + ROJO #D85E41
+       ============================================================ */
+    #atencion{
+      --accent-2: #D85E41;   /* rojo sección 2 */
+      --mask-color-2: #f9f9f9;
+    }
+    #atencion .kv2-slider{
+      --nav-size-2: 46px;
+      --nav-offset-2: 10px;
+      --nav-safe-2:  8px;
+      --edge-mask-2: 12px;
+    }
+    #atencion .kv2-slider{
+      position:relative;max-width:1100px;margin:0 auto;overflow:hidden;
+      padding-inline: calc(var(--nav-size-2) + var(--nav-offset-2) + var(--nav-safe-2));
+      box-sizing:border-box;
+    }
+    #atencion .kv2-slider::before, #atencion .kv2-slider::after{
+      content:"";position:absolute;top:0;bottom:0;
+      width: calc(var(--nav-size-2) + var(--nav-offset-2) + var(--edge-mask-2));z-index:2;pointer-events:none;
+    }
+    #atencion .kv2-slider::before{left:0;background:linear-gradient(to right,var(--mask-color-2),rgba(249,249,249,0))}
+    #atencion .kv2-slider::after{right:0;background:linear-gradient(to left,var(--mask-color-2),rgba(249,249,249,0))}
+    #atencion .kv2-track{display:flex;transition:transform 450ms ease;will-change:transform;z-index:1}
+    #atencion .kv2-slide{box-sizing:border-box;padding:1rem}
+    #atencion .kv2-card{
+      background:#fff;border-left:6px solid var(--accent-2);border-radius:10px;box-shadow:0 6px 22px rgba(0,0,0,.06);padding:1.5rem;height:100%
+    }
+    #atencion .kv2-card h3{margin:0 0 .35rem;font-size:1.55rem;color:var(--accent-2);line-height:1.2}
+    #atencion .kv2-card p{margin:0}
+    #atencion .kv2-nav{
+      position:absolute;top:50%;transform:translateY(-50%);
+      width:var(--nav-size-2);height:var(--nav-size-2);border-radius:999px;border:2px solid var(--accent-2);
+      background:#fff;color:var(--accent-2);display:grid;place-items:center;cursor:pointer;
+      box-shadow:0 8px 20px rgba(0,0,0,.08);transition:background .2s,color .2s,transform .2s;user-select:none;z-index:3;
+    }
+    #atencion .kv2-prev{left:var(--nav-offset-2)}  #atencion .kv2-next{right:var(--nav-offset-2)}
+    #atencion .kv2-nav:hover{background:var(--accent-2);color:#fff;transform:translateY(-50%) scale(1.03)}
+    #atencion .kv2-nav:active{transform:translateY(-50%) scale(.98)}
+    #atencion .kv2-nav[disabled]{opacity:.45;cursor:not-allowed}
+    #atencion .kv2-dots{display:flex;gap:.4rem;justify-content:center;margin-top:1rem}
+    #atencion .kv2-dot{width:9px;height:9px;border-radius:999px;background:#e1e1e1;border:1px solid transparent;cursor:pointer;transition:transform .15s}
+    #atencion .kv2-dot[aria-current="true"]{background:var(--accent-2);border-color:var(--accent-2);transform:scale(1.15)}
+
+    /* ========================= Intro ancho secciones 4,5,6 ========================= */
+    #usuarios .intro, #comenzar .intro, #financiacion .intro{
+      max-width: 900px;
+      margin: 0 auto 1.5rem;
+      text-align: center;
+    }
+
+    /* ============================================================ Ajustes Sección 5 ============================================================ */
+    #comenzar .kv5-slider{
+      --nav-size-5: 46px;
+      --nav-offset-5: 10px;
+      --nav-safe-5:  8px;
+      --edge-mask-5: 12px;
+      --mask-color-5: #fff;
+      --accent-5: #f39c12;
+    }
+    #comenzar .kv5-slider{
+      position:relative;max-width:1100px;margin:0 auto;overflow:hidden;
+      padding-inline: calc(var(--nav-size-5) + var(--nav-offset-5) + var(--nav-safe-5));
+      box-sizing:border-box;
+    }
+    #comenzar .kv5-slider::before, #comenzar .kv5-slider::after{
+      content:"";position:absolute;top:0;bottom:0;
+      width: calc(var(--nav-size-5) + var(--nav-offset-5) + var(--edge-mask-5));z-index:2;pointer-events:none;
+    }
+    #comenzar .kv5-slider::before{left:0;background:linear-gradient(to right,var(--mask-color-5),rgba(255,255,255,0))}
+    #comenzar .kv5-slider::after{right:0;background:linear-gradient(to left,var(--mask-color-5),rgba(255,255,255,0))}
+    #comenzar .kv5-track{display:flex;transition:transform 450ms ease;will-change:transform;z-index:1}
+    #comenzar .kv5-slide{box-sizing:border-box;padding:1rem}
+    #comenzar .kv5-card{
+      background:#fff;border-left:6px solid var(--accent-5);border-radius:10px;box-shadow:0 6px 22px rgba(0,0,0,.06);padding:1.5rem;height:100%
+    }
+    #comenzar .kv5-card h3{margin:0 0 .35rem;font-size:1.55rem;color:var(--accent-5);line-height:1.2}
+    #comenzar .kv5-card p{margin:0}
+    #comenzar .kv5-nav{
+      position:absolute;top:50%;transform:translateY(-50%);
+      width:var(--nav-size-5);height:var(--nav-size-5);border-radius:999px;border:2px solid var(--accent-5);
+      background:#fff;color:var(--accent-5);display:grid;place-items:center;cursor:pointer;
+      box-shadow:0 8px 20px rgba(0,0,0,.08);transition:background .2s,color .2s,transform .2s;user-select:none;z-index:3;
+    }
+    #comenzar .kv5-prev{left:var(--nav-offset-5)}  #comenzar .kv5-next{right:var(--nav-offset-5)}
+    #comenzar .kv5-nav:hover{background:var(--accent-5);color:#fff;transform:translateY(-50%) scale(1.03)}
+    #comenzar .kv5-nav:active{transform:translateY(-50%) scale(.98)}
+    #comenzar .kv5-nav[disabled]{opacity:.45;cursor:not-allowed}
+    #comenzar .kv-dots{display:flex;gap:.4rem;justify-content:center;margin-top:1rem}
+    #comenzar .kv-dot{width:9px;height:9px;border-radius:999px;background:#e1e1e1;border:1px solid transparent;cursor:pointer;transition:transform .15s}
+    #comenzar .kv-dot[aria-current="true"]{background:#f39c12;border-color:#f39c12;transform:scale(1.15)}
+
+    /* ============================================================
+       SECCIÓN 8 – SIMULADOR
+       ============================================================ */
+    #simulador .wrap{max-width:1100px;margin:0 auto;padding:32px 16px}
+    #simulador h2{margin:0 0 8px}
+    #simulador p.lead{margin:0 0 16px;color:#6b7280}
+
+    #simulador .sim-card{background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:16px}
+    #simulador .group{border:1px dashed #e5e7eb;border-radius:12px;padding:12px;background:#fff;margin-bottom:10px}
+    #simulador .group-title{font-weight:700;color:#111827;margin:0 0 8px;font-size:1rem}
+    #simulador .fields{display:grid;grid-template-columns:repeat(12,1fr);gap:10px}
+    #simulador .field{grid-column:span 12;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:10px 12px}
+    @media(min-width:720px){#simulador .field.half{grid-column:span 6}}
+    @media(min-width:960px){#simulador .field.third{grid-column:span 4}}
+    #simulador .label{font-size:.85rem;color:#6b7280;margin-bottom:6px}
+    #simulador input[type="number"], #simulador input[type="text"]{width:100%;font:inherit;border:none;outline:none}
+    #simulador input[type="range"]{width:100%}
+    #simulador .row{display:flex;align-items:center;justify-content:space-between;gap:8px}
+    #simulador .hint{font-size:.8rem;color:#6b7280}
+    #simulador .mono{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace}
+
+    #simulador .toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+    #simulador .btn{appearance:none;border:1px solid #d1d5db;background:white;padding:8px 10px;border-radius:10px;cursor:pointer;font:inherit}
+    #simulador .btn:hover{border-color:#9ca3af}
+    /* Preset activo en amarillo Esment */
+    #simulador .btn[aria-pressed="true"]{background:#f39c12;color:#fff;border-color:#f39c12}
+
+    #simulador .compare{display:grid;grid-template-columns:repeat(12,1fr);gap:12px;margin-top:16px}
+    #simulador .panel{grid-column:span 12;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:12px}
+    @media(min-width:960px){ #simulador .panel.left{grid-column:span 7} #simulador .panel.right{grid-column:span 5} }
+    #simulador .panel h3{margin:0 0 8px}
+    #simulador .big{font-size:1.25rem;font-weight:700}
+    #simulador .sep{height:1px;background:#eef2f7;margin:8px 0}
+    #simulador .breakdown{font-size:.9rem;color:#374151}
+    #simulador .breakdown .item{display:flex;justify-content:space-between;gap:10px}
+    #simulador .breakdown .item + .item{margin-top:4px}
+
+    #simulador .kpis{display:grid;grid-template-columns:repeat(12,1fr);gap:10px;margin-top:12px}
+    #simulador .kpi{grid-column:span 12;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:12px}
+    @media(min-width:720px){#simulador .kpi.half{grid-column:span 6}}
+    @media(min-width:960px){#simulador .kpi.third{grid-column:span 4}}
+    #simulador .kpi h4{margin:0 0 4px;font-size:.95rem}
+    #simulador .num{font-weight:700;font-size:1.1rem}
+    #simulador .good{color:#059669} #simulador .bad{color:#b91c1c}
+
+    #simulador .bar-compare{display:grid;grid-template-columns:1fr;gap:8px;margin-top:10px}
+    #simulador .bar{height:10px;border-radius:999px;background:#eee;position:relative}
+    /* Barras en rojo sección 2 */
+    #simulador .bar > span{position:absolute;height:100%;left:0;top:0;background:#D85E41;border-radius:999px}
+    #simulador .bar-label{display:flex;justify-content:space-between;font-size:.8rem;color:#6b7280}
+
+    /* =========================
+       Estilos mínimos del FAQ (aplica a #faq y #porque)
+       ========================= */
+    #faq .faq, #porque .faq{max-width:1100px;margin:0 auto;padding:0 1rem 32px}
+    #faq details, #porque details{border:1px solid #e5e7eb;border-radius:10px;background:#fff;margin:12px 0;overflow:hidden}
+    #faq summary, #porque summary{cursor:pointer;font-weight:700;list-style:none;padding:1rem 1rem 1rem 2.2rem;position:relative}
+    #faq summary::-webkit-details-marker, #porque summary::-webkit-details-marker{display:none}
+    #faq summary::before, #porque summary::before{content:"▸";position:absolute;left:.9rem;top:1.05rem;transition:transform .2s ease}
+    #faq details[open] summary::before, #porque details[open] summary::before{transform:rotate(90deg)}
+    #faq .ans, #porque .ans{padding:0 1.25rem 1.25rem 1.25rem;color:#374151;text-align:left !important}
+    #faq .ans ul, #faq .ans li, #porque .ans ul, #porque .ans li{ text-align:left !important }
+    #faq .ans ul, #porque .ans ul{margin:.4rem 0 .2rem 1.2rem}
+
+    /* Responsive */
+    @media (max-width: 720px){
+      #reto .kv-slider{--nav-size:42px;--nav-offset:8px;--nav-safe:6px;--edge-mask:10px}
+      #atencion .kv2-slider{--nav-size-2:42px;--nav-offset-2:8px;--nav-safe-2:6px;--edge-mask-2:10px}
+      #usuarios .intro, #comenzar .intro, #financiacion .intro{max-width: 92%}
+      #comenzar .kv5-slider{--nav-size-5:42px;--nav-offset-5:8px;--nav-safe-5:6px;--edge-mask-5:10px}
+    }
+  </style>
 </head>
 <body>
-  <h1>Hola 👋</h1>
-  <p>Este es mi primer index.html creado directamente en GitHub.</p>
+
+  <header class="hero">
+    <div class="hero-content">
+      <img src="resources/esment_logo.png" alt="Logo Esment" class="header-logo" />
+      <h1>Esment Comunitat</h1>
+      <p class="subtitle">Una solución innovadora y sostenible de vivienda con apoyos para la emancipación e inclusión de personas con discapacidad.</p>
+    </div>
+  </header>
+
+  <main>
+    <!-- =======================
+         SECCIÓN 1: Reto Vivienda
+         ======================= -->
+    <section id="reto">
+      <h2>1. El Reto de la Vivienda Social</h2>
+      <div class="kv-slider" aria-label="Slider de datos clave">
+        <div class="kv-track">
+          <div class="kv-slide"><div class="kv-card"><h3>+200 personas</h3><p>con discapacidad en lista de espera para vivienda en Esment.</p></div></div>
+          <div class="kv-slide"><div class="kv-card"><h3>3,7 años</h3><p>de espera media para acceder a un recurso de vivienda.</p></div></div>
+          <div class="kv-slide"><div class="kv-card"><h3>60% por debajo del SMI</h3><p>de las personas atendidas tienen ingresos inferiores al Salario Mínimo Interprofesional.</p></div></div>
+          <div class="kv-slide"><div class="kv-card"><h3>+30% del ingreso al alquiler</h3><p>el 60% destina más del 30% de sus ingresos a alquiler (riesgo de exclusión).</p></div></div>
+          <div class="kv-slide"><div class="kv-card"><h3>51% solo alquila una habitación</h3><p>por falta de asequibilidad y oferta adaptada.</p></div></div>
+          <div class="kv-slide"><div class="kv-card"><h3>150.000 € de déficit anual</h3><p>derivado del modelo residencial tradicional que asume Esment.</p></div></div>
+        </div>
+        <button class="kv-nav kv-prev" aria-label="Anterior" type="button">‹</button>
+        <button class="kv-nav kv-next" aria-label="Siguiente" type="button">›</button>
+      </div>
+      <div class="kv-dots" aria-label="Indicadores de página del slider"></div>
+    </section>
+
+    <!-- =======================
+         SECCIÓN 2: Reto Atención en Comunidad
+         ======================= -->
+    <section id="atencion" class="light-bg">
+      <h2>2. El reto de la atención en comunidad</h2>
+
+      <div class="kv2-slider" aria-label="Slider de retos de atención en comunidad">
+        <div class="kv2-track">
+          <div class="kv2-slide"><div class="kv2-card"><h3>De centros a comunidad</h3><p>Superar el modelo basado en residencias y dispositivos cerrados hacia apoyos en hogar y barrio.</p></div></div>
+          <div class="kv2-slide"><div class="kv2-card"><h3>De ladrillo a recursos del barrio</h3><p>Menos grandes infraestructuras; más uso de la vivienda del usuario y equipamientos comunitarios.</p></div></div>
+          <div class="kv2-slide"><div class="kv2-card"><h3>De actividades genéricas a vida con sentido</h3><p>Pasar de ocupaciones sin significado a participar en lo que importa, en la propia comunidad.</p></div></div>
+          <div class="kv2-slide"><div class="kv2-card"><h3>De servicios uniformes a apoyos individualizados</h3><p>Vencer la lógica “café para todos” y responder a necesidades y tiempos reales de cada persona.</p></div></div>
+          <div class="kv2-slide"><div class="kv2-card"><h3>De circuitos fragmentados a coordinación cercana</h3><p>Reducir burocracia y esperas, con respuesta ágil y un punto de coordinación en territorio.</p></div></div>
+          <div class="kv2-slide"><div class="kv2-card"><h3>De enfoques sectoriales a comunidad inclusiva</h3><p>Incluir mayores, salud mental y soledad no deseada en un marco común de atención comunitaria.</p></div></div>
+        </div>
+
+        <button class="kv2-nav kv2-prev" aria-label="Anterior" type="button">‹</button>
+        <button class="kv2-nav kv2-next" aria-label="Siguiente" type="button">›</button>
+      </div>
+
+      <div class="kv2-dots" aria-label="Indicadores de página del slider"></div>
+    </section>
+
+    <!-- =======================
+         SECCIÓN 3 → BLANCO
+         ======================= -->
+    <section id="solucion">
+      <h2>3. Nuestra solución: Esment Comunitat</h2>
+      <div class="solucion-content">
+        <div class="solucion-text">
+          <p><strong>Esment Comunitat</strong> articula dos palancas clave para garantizar el itinerario vital de las personas con discapacidad: <strong>gestionar vivienda</strong> y <strong>gestionar apoyos</strong>. La primera asegura acceso estable y asequible, condición necesaria para planificar la vida con horizonte y seguridad.</p>
+          <p>La segunda, <strong>apoyos personalizados en la comunidad</strong>, impulsa la participación, refuerza la autonomía y favorece la <strong>inclusión y la emancipación</strong>. Juntas, ambas palancas convierten el derecho a vivir en la comunidad en una realidad sostenible y medible.</p>
+        </div>
+        <div class="solucion-highlight">
+          <p>Ahorro para la Administración</p>
+          <span>1,9 M€</span>
+          <p>Anuales</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================
+         SECCIÓN 4 → GRIS
+         ======================= -->
+    <section id="usuarios" class="light-bg">
+      <h2>4. A quién nos dirigimos</h2>
+      <p class="intro">Esment Comunitat acompaña a personas que requieren <strong>apoyos para su proyecto de vida</strong> en su propio entorno. La innovación está en un <strong>modelo de apoyos personalizados y graduables</strong> —desde mínimos hasta alta intensidad— que facilita vivir en comunidad con participación y autonomía. Muchas cuentan con <strong>capacidad económica limitada</strong>, por lo que la accesibilidad y la asequibilidad son esenciales.</p>
+      <div class="user-profiles">
+        <div class="profile">
+          <h4>Personas con discapacidad que quieren vivir en comunidad</h4>
+          <p>Nuestro foco principal: quienes desean iniciar o consolidar su <strong>vida independiente</strong> en su vivienda y barrio. El enfoque admite <strong>itinerarios graduables</strong> y mantiene el objetivo de permanecer en la comunidad con <strong>participación</strong> y <strong>autonomía</strong>.</p>
+        </div>
+        <div class="profile">
+          <h4>Otros colectivos de la comunidad</h4>
+          <p>Aplicable a <strong>personas mayores</strong>, <strong>salud mental</strong> y <strong>jóvenes extutelados</strong>, entre otros. El modelo genera <strong>sinergias</strong> entre recursos de barrio, redes vecinales y equipos de proximidad, construyendo una <strong>comunidad cuidadora</strong> con enfoque de <strong>accesibilidad económica</strong>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================
+         SECCIÓN 5 → BLANCO (¿Cómo empezar?)
+         ======================= -->
+    <section id="comenzar">
+      <h2>5. ¿Cómo empezar?</h2>
+      <p class="intro">Ponemos en marcha <strong>Esment Comunitat</strong> con un plan operativo simple y escalable: <strong>inversión inicial</strong> asumida por Esment para activar un parque de <strong>100 viviendas a precio limitado</strong>, combinando <strong>70 viviendas en coliving (obra propia)</strong> y <strong>30 viviendas captadas</strong> en la comunidad, y desplegando <strong>nuevos perfiles profesionales</strong> de proximidad. Gestión integral a cargo de Esment.</p>
+
+      <div class="kv5-slider" aria-label="Pasos para iniciar Esment Comunitat">
+        <div class="kv5-track">
+          <div class="kv5-slide"><div class="kv5-card"><h3>Inversión inicial de Esment</h3><p>Palanca financiera para arrancar sin inversión pública inicial (≈ <strong>16 M€</strong>), acelerando tiempos de puesta en marcha.</p></div></div>
+          <div class="kv5-slide"><div class="kv5-card"><h3>100 viviendas a precio limitado</h3><p>Parque inicial de alquiler asequible (referencia 1,3× VPO) con criterios de acceso claros y trazables.</p></div></div>
+          <div class="kv5-slide"><div class="kv5-card"><h3>70 viviendas en coliving (obra propia)</h3><p><strong>≈ 11,2 M€</strong> de inversión asumida por Esment en construcción y puesta en marcha — <em>inversión pública evitada</em>.</p></div></div>
+          <div class="kv5-slide"><div class="kv5-card"><h3>30 viviendas captadas en la comunidad</h3><p>Movilización de parque existente mediante acuerdos con propietarios. <strong>≈ 5 M€</strong> de inversión pública evitada.</p></div></div>
+          <div class="kv5-slide"><div class="kv5-card"><h3>Nuevos perfiles profesionales</h3><p>Gestión de vivienda, facilitación comunitaria y equipos de apoyo de proximidad para respuesta ágil y coordinación territorial.</p></div></div>
+          <div class="kv5-slide"><div class="kv5-card"><h3>Gestión integral con adjudicación pública</h3><p>Esment coordina captación, mantenimiento y apoyos. La <strong>adjudicación</strong> se realiza <strong>siempre vía listas públicas</strong>, sin alterar su orden.</p></div></div>
+        </div>
+        <button class="kv5-nav kv5-prev" aria-label="Anterior" type="button">‹</button>
+        <button class="kv5-nav kv5-next" aria-label="Siguiente" type="button">›</button>
+      </div>
+      <div class="kv-dots" aria-label="Indicadores de página del slider"></div>
+    </section>
+
+    <!-- =======================
+         SECCIÓN 6 → GRIS (¿Cómo financiarlo?)
+         ======================= -->
+    <section id="financiacion" class="light-bg">
+      <h2>6. ¿Cómo financiarlo?</h2>
+      <p class="intro"><strong>El Convenio Singular</strong> es el instrumento para una <strong>colaboración directa y ágil</strong> con la Administración. Amparado por la <strong>Ley del Tercer Sector</strong> y la <strong>Ley de Contratos del Sector Público</strong>, reconoce el carácter singular de entidades como Esment y aporta <strong>seguridad jurídica</strong>. Además, permite <strong>validar y ajustar</strong> el modelo de cara a una futura <strong>concertación de servicios</strong>.</p>
+
+      <div class="user-profiles">
+        <div class="profile">
+          <h4>Vivienda: alquiler limitado + complemento</h4>
+          <p>Las viviendas se ofrecen en <strong>alquiler a precio limitado</strong> (referencia <strong>1,3× VPO</strong>). Quien <strong>puede pagar</strong>, lo hace conforme a criterios establecidos. Para quienes <strong>no pueden</strong> (listas públicas), el <strong>IMAS</strong> aporta un <strong>complemento de vivienda</strong> que los equipara en acceso y condiciones, con trazabilidad y control público.</p>
+        </div>
+        <div class="profile">
+          <h4>Apoyos y cuidados: estándar + complementos</h4>
+          <p>La financiación parte de un <strong>precio estándar de apoyo en la vivienda</strong> y suma <strong>complementos</strong> por <strong>alta intensidad</strong> y <strong>complejidad</strong> cuando sean necesarios (según plan individual). Estos módulos se activan por periodos definidos, permitiendo <strong>ajustar recursos</strong> al nivel real de apoyo y sostener la vida en comunidad.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================
+         SECCIÓN 7 → BLANCO (FAQ estilo) — ¿Por qué funciona?
+         ======================= -->
+    <section id="porque">
+      <div class="faq">
+        <h2>7. ¿Por qué funciona?</h2>
+
+        <details>
+          <summary>Para la Administración: ahorro, listas de espera y eficiencia</summary>
+          <div class="ans">
+            <ul>
+              <li><strong>Ahorro de costes:</strong> Esment asume la inversión inicial de las viviendas (<strong>≈ 16 M€</strong>: ~<strong>11,2 M€</strong> en 70 colivings + ~<strong>5 M€</strong> por 30 viviendas captadas), evitando CAPEX público y generando un <strong>ahorro operativo anual estimado de 1,9 M€</strong> al optimizar los apoyos en comunidad.</li>
+              <li><strong>Reducción de listas de espera:</strong> Se incrementa la oferta con <strong>100 viviendas</strong> a precio limitado y se favorece la rotación al priorizar apoyos en entornos normalizados. La <strong>adjudicación</strong> se hace <strong>siempre vía listas públicas</strong>, con trazabilidad y equidad.</li>
+              <li><strong>Eficiencia del sistema:</strong> Menos dependencia de recursos altamente especializados, uso de vivienda del usuario y <strong>equipamientos comunitarios</strong>, y financiación modulada por <strong>intensidad real de apoyo</strong> (estándar + complementos temporales).</li>
+            </ul>
+          </div>
+        </details>
+
+        <details>
+          <summary>Para las Personas: vivienda digna, asequible y con apoyos personalizados</summary>
+          <div class="ans">
+            <ul>
+              <li><strong>Vivienda digna y asequible:</strong> Alquiler a precio limitado (referencia <strong>1,3× VPO</strong>) y, cuando es necesario, <strong>complemento de vivienda del IMAS</strong> para garantizar el acceso.</li>
+              <li><strong>Apoyos a medida:</strong> Plan individual con intensidades <em>baja/ media/ alta</em> y <strong>complementos</strong> por complejidad según evolución, evitando institucionalización y desplazamientos innecesarios.</li>
+              <li><strong>Vida en comunidad:</strong> Actividades con sentido en el barrio, redes de proximidad y participación real que refuerzan <strong>autonomía</strong> y <strong>emancipación</strong>.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details>
+          <summary>Para la Sociedad: inversión social sostenible, escalable e inclusiva</summary>
+          <div class="ans">
+            <ul>
+              <li><strong>Sostenibilidad:</strong> Se optimizan recursos existentes, se reservan plazas especializadas para casos complejos y se fomenta la <strong>comunidad cuidadora</strong> con impacto positivo en salud, convivencia y apoyo mutuo.</li>
+              <li><strong>Escalabilidad y replicabilidad:</strong> El <strong>Convenio Singular</strong> permite <strong>validar y ajustar</strong> el modelo para su posterior <strong>concertación</strong>, facilitando su expansión a otros municipios.</li>
+              <li><strong>Inclusión:</strong> Un enfoque que integra discapacidad, mayores, salud mental y juventud extutelada en entornos normalizados, fortaleciendo la cohesión social.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- =======================
+         SECCIÓN 8 → GRIS (SIMULADOR DE ESCENARIOS)
+         ======================= -->
+    <section id="simulador" class="light-bg">
+      <div class="wrap">
+        <h2>8. Simulador de escenarios</h2>
+        <p class="lead">Compara el coste del <strong>Modelo de comunidad (Esment Comunitat)</strong> —<em>apoyo en vivienda = base + intensidad/complejidad + complemento de vivienda</em>— frente a <strong>Modelos tradicionales</strong> (Vivienda Supervisada / Residencia).</p>
+
+        <div class="sim-card" aria-live="polite">
+          <!-- 1) PARÁMETROS GENERALES -->
+          <div class="group">
+            <div class="group-title">Parámetros generales</div>
+            <div class="fields">
+              <div class="field third">
+                <div class="label">Días/año</div>
+                <input id="diasAnio" type="number" min="1" step="1" value="365" />
+              </div>
+              <div class="field third">
+                <div class="label">Número de plazas</div>
+                <input id="nPlazas" type="number" min="1" step="1" value="100" />
+              </div>
+              <div class="field third">
+                <div class="label">Precio vivienda (€/mes)</div>
+                <input id="precioViviendaMes" type="number" min="0" step="1" value="650" />
+              </div>
+            </div>
+          </div>
+
+          <!-- 2) APOYO EN VIVIENDA (ESMENT COMUNITAT) -->
+          <div class="group">
+            <div class="group-title">Apoyo en vivienda (Esment Comunitat)</div>
+            <div class="fields">
+              <div class="field third">
+                <div class="label">Base apoyo (€/día)</div>
+                <input id="baseDia" type="number" min="0" step="0.01" value="43.80" />
+              </div>
+
+              <div class="field third">
+                <div class="label">Compl. intensidad / complejidad (€/día)</div>
+                <input id="compAltaDia" type="number" min="0" step="0.01" value="31.38" />
+                <div class="row hint"><span>% de días con este complemento</span><span id="pAltaOut">20%</span></div>
+                <input id="pAlta" type="range" min="0" max="1" step="0.01" value="0.20" />
+              </div>
+
+              <div class="field third">
+                <div class="label">Compl. vivienda medio (€/mes)</div>
+                <input id="compVivMedMes" type="number" min="0" step="1" value="300" />
+                <div class="row hint"><span>% de personas que lo reciben</span><span id="pCompVivOut">60%</span></div>
+                <input id="pCompViv" type="range" min="0" max="1" step="0.01" value="0.60" />
+              </div>
+            </div>
+          </div>
+
+          <!-- 3) COMPARADORES -->
+          <div class="group">
+            <div class="group-title">Modelos tradicionales — precios día</div>
+            <div class="fields">
+              <div class="field half">
+                <div class="label">Vivienda supervisada (€/día)</div>
+                <input id="vivSupDia" type="number" min="0" step="0.01" value="85.15" />
+              </div>
+              <div class="field half">
+                <div class="label">Residencia (€/día)</div>
+                <input id="resDia" type="number" min="0" step="0.01" value="105.37" />
+              </div>
+            </div>
+          </div>
+
+          <!-- PRESETS -->
+          <div class="toolbar">
+            <button class="btn" data-preset="conservador" type="button" aria-pressed="false">Conservador</button>
+            <button class="btn" data-preset="central" type="button" aria-pressed="true">Central</button>
+            <button class="btn" data-preset="intensivo" type="button" aria-pressed="false">Intensivo</button>
+            <span class="hint">Fórmula (€/día): <span class="mono">Base + pAlta·CompInt + pCompViv·(CompVivMes·12 / DíasAño)</span></span>
+          </div>
+
+          <!-- RESULTADO COMPARADO -->
+          <div class="compare">
+            <div class="panel left">
+              <h3>Modelo de comunidad: <span style="color:#f39c12">Esment Comunitat</span></h3>
+              <div class="big" id="kpiApoyoDia">—</div>
+              <div class="hint">Coste medio por día (1 plaza)</div>
+              <div class="sep"></div>
+              <div class="breakdown">
+                <div class="item"><span>Base apoyo</span><span id="kpiContribBase">—</span></div>
+                <div class="item"><span>+ Intensidad/complejidad (ponderado)</span><span id="kpiContribInt">—</span></div>
+                <div class="item"><span>+ Complemento vivienda (ponderado · prorrateo día)</span><span id="kpiContribViv">—</span></div>
+              </div>
+              <div class="sep"></div>
+              <div class="item" style="display:flex;justify-content:space-between;gap:10px">
+                <strong>Aporte medio usuario</strong><span id="kpiAporteUsuario">—</span>
+              </div>
+              <div class="sep"></div>
+              <div><strong>Anual (todas las plazas):</strong> <span class="big" id="kpiApoyoAnual">—</span></div>
+            </div>
+
+            <div class="panel right">
+              <h3>Modelos tradicionales</h3>
+              <div class="breakdown">
+                <div class="item"><span>Vivienda supervisada — coste/día</span><span id="kpiVsupDia">—</span></div>
+                <div class="item"><span>Vivienda supervisada — anual (todas las plazas)</span><span id="kpiVsupAnual">—</span></div>
+                <div class="sep"></div>
+                <div class="item"><span>Residencia — coste/día</span><span id="kpiResDia">—</span></div>
+                <div class="item"><span>Residencia — anual (todas las plazas)</span><span id="kpiResAnual">—</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="kpis">
+            <div class="kpi half">
+              <h4>Ahorro ANUAL vs Residencia</h4>
+              <div class="num" id="kpiAhorroRes">—</div>
+              <div class="hint" id="kpiAhorroResPct">—</div>
+            </div>
+            <div class="kpi half">
+              <h4>Ahorro ANUAL vs Vivienda Supervisada</h4>
+              <div class="num" id="kpiAhorroVsup">—</div>
+              <div class="hint" id="kpiAhorroVsupPct">—</div>
+            </div>
+          </div>
+
+          <div class="bar-compare" aria-hidden="true">
+            <div class="bar-label"><span>Esment Comunitat (€/día)</span><span id="barApoyoVal">—</span></div>
+            <div class="bar"><span id="barApoyo" style="width:0%"></span></div>
+            <div class="bar-label"><span>V. Supervisada (€/día)</span><span id="barVsupVal">—</span></div>
+            <div class="bar"><span id="barVsup" style="width:0%"></span></div>
+            <div class="bar-label"><span>Residencia (€/día)</span><span id="barResVal">—</span></div>
+            <div class="bar"><span id="barRes" style="width:0%"></span></div>
+          </div>
+
+          <p class="hint" style="margin-top:10px">
+            Este simulador resume costes directos para la Administración (incluye complementos). El “aporte medio usuario (€/mes)” es informativo y se calcula como promedio ponderado según el % de personas que reciben complemento.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================
+         SECCIÓN 9 → BLANCO (FAQ)
+         ======================= -->
+    <section id="faq">
+      <div class="faq">
+        <h2>9. Preguntas frecuentes</h2>
+
+        <details open>
+          <summary>¿Se ahorra dinero con el cambio de modelo?</summary>
+          <div class="ans">
+            <p>Sí. <strong>De media</strong>, el coste de <em>Apoyo en Vivienda (Esment Comunitat)</em> resulta inferior al de <em>Residencia</em> y, según escenario, también al de <em>Vivienda Supervisada</em>. Puedes comprobarlo en el <a href="#simulador">simulador</a>.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Qué cambia exactamente en el modelo de atención?</summary>
+          <div class="ans">
+            <p>Desplazamos el foco desde dispositivos especializados hacia <strong>apoyos en la vivienda del usuario</strong> y su comunidad, con intensidades graduables y mejor ajuste a la necesidad real.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Qué perfiles de usuarios atendemos y con qué niveles de apoyo?</summary>
+          <div class="ans">
+            <p>Desde <em>baja</em> hasta <em>alta</em> necesidad de apoyo (visitas puntuales hasta apoyo diario). La intensidad se define en el <strong>plan individual</strong> y puede variar según evolución.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Cómo encaja con listas de espera y el pago de la vivienda?</summary>
+          <div class="ans">
+            <ul>
+              <li><strong>Listas de espera:</strong> se respetan los circuitos oficiales, con trazabilidad y transparencia.</li>
+              <li><strong>Pago de vivienda:</strong> quien puede pagar lo hace; cuando no, la Administración complementa el coste sin alterar el orden de la lista.</li>
+              <li><strong>Criterios de acceso:</strong> adecuación del recurso, urgencia/riesgo y disponibilidad.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Esment Comunitat. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- =======================
+       JS Sección 1 (slider transform)
+       ======================= -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function(){
+      const section = document.querySelector('#reto');
+      if(!section) return;
+      const slider  = section.querySelector('.kv-slider');
+      const track   = section.querySelector('.kv-track');
+      const slides  = Array.from(section.querySelectorAll('.kv-slide'));
+      const prev    = section.querySelector('.kv-prev');
+      const next    = section.querySelector('.kv-next');
+      const dotsC   = section.querySelector('.kv-dots');
+
+      let slidesPerView = 2, currentPage = 0, pages = 0;
+      const getViewportWidth=()=>{ const cs = getComputedStyle(slider); const pad = parseFloat(cs.paddingLeft)+parseFloat(cs.paddingRight); return slider.clientWidth - pad; };
+      function layout(){ slidesPerView = window.innerWidth <= 720 ? 1 : 2; const viewport=getViewportWidth(); const card=viewport / slidesPerView; slides.forEach(s=> s.style.width = card + 'px'); track.style.width = (card * slides.length) + 'px'; pages = Math.ceil(slides.length / slidesPerView); currentPage = Math.min(currentPage, pages-1); renderDots(); update(); }
+      function update(){ const viewport=getViewportWidth(); const offset = -(viewport * currentPage); track.style.transform = 'translateX(' + offset + 'px)'; dotsC.querySelectorAll('.kv-dot').forEach((d,i)=> d.setAttribute('aria-current', String(i===currentPage))); prev.disabled = currentPage===0; next.disabled = currentPage===pages-1; [prev,next].forEach(b=> b.style.opacity = b.disabled ? .45 : 1); }
+      function renderDots(){ const existing = dotsC.querySelectorAll('.kv-dot'); if(existing.length===pages) return; dotsC.innerHTML=''; for(let i=0;i<pages;i++){ const dot=document.createElement('button'); dot.className='kv-dot'; dot.type='button'; dot.setAttribute('aria-label','Ir a página '+(i+1)); if(i===currentPage) dot.setAttribute('aria-current','true'); dot.addEventListener('click',()=>{ currentPage=i; update(); }); dotsC.appendChild(dot);} }
+      function go(d){ currentPage = Math.max(0, Math.min(pages-1, currentPage + d)); update(); }
+      prev.addEventListener('click', ()=>go(-1)); next.addEventListener('click', ()=>go(1)); window.addEventListener('resize', layout); layout();
+    });
+  </script>
+
+  <!-- =======================
+       JS Sección 2 (slider gemelo)
+       ======================= -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function(){
+      const section = document.querySelector('#atencion');
+      if(!section) return;
+      const slider  = section.querySelector('.kv2-slider');
+      const track   = section.querySelector('.kv2-track');
+      const slides  = Array.from(section.querySelectorAll('.kv2-slide'));
+      const prev    = section.querySelector('.kv2-prev');
+      const next    = section.querySelector('.kv2-next');
+      const dotsC   = section.querySelector('.kv2-dots');
+
+      let slidesPerView = 2, currentPage = 0, pages = 0;
+      const getViewportWidth=()=>{ const cs = getComputedStyle(slider); const pad = parseFloat(cs.paddingLeft)+parseFloat(cs.paddingRight); return slider.clientWidth - pad; };
+      function layout(){ slidesPerView = window.innerWidth <= 720 ? 1 : 2; const viewport=getViewportWidth(); const card=viewport / slidesPerView; slides.forEach(s=> s.style.width = card + 'px'); track.style.width = (card * slides.length) + 'px'; pages = Math.ceil(slides.length / slidesPerView); currentPage = Math.min(currentPage, pages-1); renderDots(); update(); }
+      function update(){ const viewport=getViewportWidth(); const offset = -(viewport * currentPage); track.style.transform = 'translateX(' + offset + 'px)'; dotsC.querySelectorAll('.kv2-dot').forEach((d,i)=> d.setAttribute('aria-current', String(i===currentPage))); prev.disabled = currentPage===0; next.disabled = currentPage===pages-1; [prev,next].forEach(b=> b.style.opacity = b.disabled ? .45 : 1); }
+      function renderDots(){ const existing = dotsC.querySelectorAll('.kv2-dot'); if(existing.length===pages) return; dotsC.innerHTML=''; for(let i=0;i<pages;i++){ const dot=document.createElement('button'); dot.className='kv2-dot'; dot.type='button'; dot.setAttribute('aria-label','Ir a página '+(i+1)); if(i===currentPage) dot.setAttribute('aria-current','true'); dot.addEventListener('click',()=>{ currentPage=i; update(); }); dotsC.appendChild(dot);} }
+      function go(d){ currentPage = Math.max(0, Math.min(pages-1, currentPage + d)); update(); }
+      prev.addEventListener('click', ()=>go(-1)); next.addEventListener('click', ()=>go(1)); window.addEventListener('resize', layout); layout();
+    });
+  </script>
+
+  <!-- =======================
+       JS Sección 5 (slider tipo S1)
+       ======================= -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function(){
+      const section = document.querySelector('#comenzar');
+      if(!section) return;
+      const slider  = section.querySelector('.kv5-slider');
+      const track   = section.querySelector('.kv5-track');
+      const slides  = Array.from(section.querySelectorAll('.kv5-slide'));
+      const prev    = section.querySelector('.kv5-prev');
+      const next    = section.querySelector('.kv5-next');
+      const dotsC   = section.querySelector('.kv-dots');
+
+      let slidesPerView = 2, currentPage = 0, pages = 0;
+      const getViewportWidth=()=>{ const cs = getComputedStyle(slider); const pad = parseFloat(cs.paddingLeft)+parseFloat(cs.paddingRight); return slider.clientWidth - pad; };
+      function layout(){ slidesPerView = window.innerWidth <= 720 ? 1 : 2; const viewport=getViewportWidth(); const card=viewport / slidesPerView; slides.forEach(s=> s.style.width = card + 'px'); track.style.width = (card * slides.length) + 'px'; pages = Math.ceil(slides.length / slidesPerView); currentPage = Math.min(currentPage, pages-1); renderDots(); update(); }
+      function update(){ const viewport=getViewportWidth(); const offset = -(viewport * currentPage); track.style.transform = 'translateX(' + offset + 'px)'; dotsC.querySelectorAll('.kv-dot').forEach((d,i)=> d.setAttribute('aria-current', String(i===currentPage))); prev.disabled = currentPage===0; next.disabled = currentPage===pages-1; [prev,next].forEach(b=> b.style.opacity = b.disabled ? .45 : 1); }
+      function renderDots(){ const existing = dotsC.querySelectorAll('.kv-dot'); if(existing.length===pages) return; dotsC.innerHTML=''; for(let i=0;i<pages;i++){ const dot=document.createElement('button'); dot.className='kv-dot'; dot.type='button'; dot.setAttribute('aria-label','Ir a página '+(i+1)); if(i===currentPage) dot.setAttribute('aria-current','true'); dot.addEventListener('click',()=>{ currentPage=i; update(); }); dotsC.appendChild(dot);} }
+      function go(d){ currentPage = Math.max(0, Math.min(pages-1, currentPage + d)); update(); }
+      prev.addEventListener('click', ()=>go(-1)); next.addEventListener('click', ()=>go(1)); window.addEventListener('resize', layout); layout();
+    });
+  </script>
+
+  <!-- =======================
+       JS Sección 8 (Simulador)
+       ======================= -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function(){
+      'use strict';
+      const formatEUR = (n)=> new Intl.NumberFormat('es-ES',{style:'currency',currency:'EUR',maximumFractionDigits:2}).format(Number(n)||0);
+      const parseNum  = (el)=> { const raw=(typeof el==='string'?el:(el?.value??'')).toString().replace(',','.'); const v=parseFloat(raw); return isNaN(v)?0:v; };
+      const $ = (id)=> document.getElementById(id);
+
+      // Entradas: Parámetros generales
+      const diasAnio=$('diasAnio');
+      const nPlazas=$('nPlazas');
+      const precioViviendaMes=$('precioViviendaMes');
+
+      // Entradas: Apoyo + complementos
+      const baseDia=$('baseDia');
+      const compAltaDia=$('compAltaDia');
+      const pAlta=$('pAlta');
+      const pAltaOut=$('pAltaOut');
+
+      const compVivMedMes=$('compVivMedMes');
+      const pCompViv=$('pCompViv');
+      const pCompVivOut=$('pCompVivOut');
+
+      // Entradas: comparadores
+      const vivSupDia=$('vivSupDia');
+      const resDia=$('resDia');
+
+      // Salidas: Esment Comunitat
+      const kApoyoDia=$('kpiApoyoDia');
+      const kApoyoAnual=$('kpiApoyoAnual');
+      const kContribBase=$('kpiContribBase');
+      const kContribInt=$('kpiContribInt');
+      const kContribViv=$('kpiContribViv');
+      const kAporteUsuario=$('kpiAporteUsuario');
+
+      // Salidas: tradicionales
+      const kVsupDia=$('kpiVsupDia');
+      const kVsupAnual=$('kpiVsupAnual');
+      const kResDia=$('kpiResDia');
+      const kResAnual=$('kpiResAnual');
+
+      // Ahorros
+      const kAhorroRes=$('kpiAhorroRes');
+      const kAhorroResPct=$('kpiAhorroResPct');
+      const kAhorroVsup=$('kpiAhorroVsup');
+      const kAhorroVsupPct=$('kpiAhorroVsupPct');
+
+      // Barras
+      const barApoyo=$('barApoyo'), barVsup=$('barVsup'), barRes=$('barRes');
+      const barApoyoVal=$('barApoyoVal'), barVsupVal=$('barVsupVal'), barResVal=$('barResVal');
+
+      // Presets
+      const presetBtns=[...document.querySelectorAll('#simulador [data-preset]')];
+      function clearPresetHighlight(){ presetBtns.forEach(b=> b.setAttribute('aria-pressed','false')); }
+      function markPreset(btn){ clearPresetHighlight(); btn.setAttribute('aria-pressed','true'); }
+
+      // Fórmulas
+      function toDiaDesdeMes(mes){ return (parseNum(mes) * 12) / Math.max(parseNum(diasAnio),1); }
+      function costeApoyoDia(){
+        const base = parseNum(baseDia);
+        const cInt = parseNum(compAltaDia) * parseNum(pAlta);          // ponderado por % de días
+        const cViv = toDiaDesdeMes(compVivMedMes) * parseNum(pCompViv); // ponderado por % de personas
+        return { cDia: base + cInt + cViv, base, cInt, cViv };
+      }
+      const anual = (costeDia)=> (parseNum(nPlazas) * parseNum(diasAnio) * costeDia);
+      function aporteUsuarioMedioMes(){
+        const precio = parseNum(precioViviendaMes);
+        const comp   = parseNum(compVivMedMes);
+        const p      = parseNum(pCompViv);
+        const pagoReceptor   = Math.max(precio - comp, 0);
+        const pagoNoReceptor = precio;
+        return p*pagoReceptor + (1-p)*pagoNoReceptor;
+      }
+      const pct = (x)=> (x*100).toFixed(1)+'%';
+      function updateBars(cApoyo,cVsup,cRes){
+        const max=Math.max(cApoyo,cVsup,cRes,1);
+        barApoyo.style.width=(cApoyo/max*100).toFixed(1)+'%';
+        barVsup.style.width =(cVsup /max*100).toFixed(1)+'%';
+        barRes.style.width  =(cRes  /max*100).toFixed(1)+'%';
+        barApoyoVal.textContent=formatEUR(cApoyo);
+        barVsupVal.textContent =formatEUR(cVsup);
+        barResVal.textContent  =formatEUR(cRes);
+      }
+
+      function update(){
+        pAltaOut.textContent   = pct(parseNum(pAlta));
+        pCompVivOut.textContent= pct(parseNum(pCompViv));
+
+        const { cDia, base, cInt, cViv } = costeApoyoDia();
+        kApoyoDia.textContent   = formatEUR(cDia);
+        kContribBase.textContent= formatEUR(base) + " /día (base)";
+        kContribInt.textContent = "+ " + formatEUR(cInt) + " /día (intensidad/complejidad ponderada)";
+        kContribViv.textContent = "+ " + formatEUR(cViv) + " /día (comp. vivienda ponderado y prorrateado)";
+        kApoyoAnual.textContent = formatEUR(anual(cDia));
+        kAporteUsuario.textContent = formatEUR(aporteUsuarioMedioMes()) + " /mes (promedio)";
+
+        const cVsup = parseNum(vivSupDia);
+        const cRes  = parseNum(resDia);
+        kVsupDia.textContent   = formatEUR(cVsup);
+        kVsupAnual.textContent = formatEUR(anual(cVsup));
+        kResDia.textContent    = formatEUR(cRes);
+        kResAnual.textContent  = formatEUR(anual(cRes));
+
+        const anApoyo = anual(cDia), anVsup = anual(cVsup), anRes = anual(cRes);
+        const ahRes = anRes - anApoyo, ahV = anVsup - anApoyo;
+        kAhorroRes.textContent    = formatEUR(ahRes);
+        kAhorroResPct.textContent = anRes>0 ? ( (ahRes/anRes*100).toFixed(1) + "% de ahorro") : "—";
+        kAhorroVsup.textContent   = formatEUR(ahV);
+        kAhorroVsupPct.textContent= anVsup>0 ? ( (ahV/anVsup*100).toFixed(1) + "% de ahorro") : "—";
+        kAhorroRes.classList.toggle('good', ahRes>0);
+        kAhorroRes.classList.toggle('bad',  ahRes<0);
+        kAhorroVsup.classList.toggle('good', ahV>0);
+        kAhorroVsup.classList.toggle('bad',  ahV<0);
+
+        updateBars(cDia,cVsup,cRes);
+
+        // Cualquier cambio manual desmarca el preset activo
+        clearPresetHighlight();
+      }
+
+      // Listeners de entradas
+      const inputs=[diasAnio,nPlazas,precioViviendaMes,baseDia,compAltaDia,pAlta,compVivMedMes,pCompViv,vivSupDia,resDia];
+      inputs.forEach(inp=>{
+        inp.addEventListener('input', update, {passive:true});
+        inp.addEventListener('change', update, {passive:true});
+      });
+
+      // Presets
+      presetBtns.forEach(btn=>{
+        btn.addEventListener('click',()=>{
+          const p = btn.getAttribute('data-preset');
+          if(p==='conservador'){ pAlta.value='0.10'; pCompViv.value='0.40'; }
+          if(p==='central'){     pAlta.value='0.20'; pCompViv.value='0.60'; }
+          if(p==='intensivo'){   pAlta.value='0.30'; pCompViv.value='0.80'; }
+          markPreset(btn);
+          update();
+          markPreset(btn); // mantener resaltado tras update
+        });
+      });
+
+      // Estado inicial: preset central marcado
+      const centralBtn = document.querySelector('#simulador [data-preset="central"]');
+      if(centralBtn){ centralBtn.setAttribute('aria-pressed','true'); }
+
+      update();
+    });
+  </script>
 </body>
 </html>
